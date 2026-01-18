@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenya Universities & Courses Portal</title>
+  <style>
+    body{margin:0;font-family:Segoe UI,Tahoma,sans-serif;background:linear-gradient(180deg,#f4f6f8,#e9eef5);color:#333}
+    header{background:linear-gradient(135deg,#0d6efd,#0a58ca);color:#fff;padding:15px 20px;display:flex;align-items:center;justify-content:space-between}
+    header .logo{display:flex;align-items:center;gap:10px}
+    header img{width:40px;height:40px}
+    nav a{color:#fff;margin-left:15px;text-decoration:none;font-weight:500}
+    .hero{text-align:center;padding:40px 20px;background:#fff}
+    .container{max-width:1100px;margin:auto;padding:20px}
+    .card{background:#fff;border-radius:16px;padding:22px;margin-bottom:20px;box-shadow:0 8px 20px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.12)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    h2,h3{color:#0d6efd}
+    footer{background:#0d6efd;color:#fff;text-align:center;padding:15px}
+    input,select,button{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc}
+    button{background:linear-gradient(135deg,#0d6efd,#0a58ca);color:#fff;border:none;font-weight:bold;cursor:pointer;border-radius:30px}
+    .hidden{display:none}
+    .whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:bold}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="https://img.icons8.com/ios-filled/100/graduation-cap.png" alt="logo" />
+    <strong>Kenya Courses Portal</strong>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#universities">Universities</a>
+    <a href="#courses">Courses</a>
+    <a href="#login">Admin</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h2>All Universities & College Courses in Kenya</h2>
+  <p>Degree, Diploma & Certificate courses with KCSE requirements</p>
+</section>
+
+<div class="container">
+
+  <!-- Universities -->
+  <div id="universities" class="card">
+    <h3>Universities in Kenya</h3>
+    <input id="uniSearch" placeholder="Search university (public or private)" onkeyup="searchUniversities()" />
+    <div id="uniList"></div>
+  </div>
+
+  <!-- Courses -->
+  <div id="courses" class="card">
+    <h3>Courses & Requirements</h3>
+    <input id="searchInput" placeholder="Search course or level (Degree, Diploma, Certificate)" onkeyup="searchCourses()" />
+    <div id="courseList" class="grid"></div>
+  </div>
+
+  <!-- Admin Login -->
+  <div id="login" class="card">
+    <h3>Admin Login</h3>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p id="loginMsg"></p>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="dashboard" class="card hidden">
+    <h3>Admin Dashboard</h3>
+    <p>Welcome <strong>Dennis Jallen</strong></p>
+
+    <h4>Add / Edit University</h4>
+    <input id="uniIndex" type="hidden" />
+    <input id="uniName" placeholder="University Name" />
+    <select id="uniType">
+      <option>Public</option>
+      <option>Private</option>
+    </select>
+    <button onclick="saveUniversity()">Save University</button>
+
+    <h4>Add / Edit Course</h4>
+    <input id="courseIndex" type="hidden" />
+    <input id="courseName" placeholder="Course Name" />
+    <select id="courseLevel">
+      <option>Degree</option>
+      <option>Diploma</option>
+      <option>Certificate</option>
+    </select>
+    <input id="courseReq" placeholder="KCSE Mean Grade & Subject Requirements" />
+    <button onclick="saveCourse()">Save Course</button>
+
+    <h4>Saved Data</h4>
+    <div id="adminData"></div>
+  </div>
+
+  <!-- Student Inquiry -->
+  <div class="card">
+    <h3>Student Inquiry</h3>
+    <input id="inqName" placeholder="Your Name" />
+    <input id="inqCourse" placeholder="Course Interested In" />
+    <button onclick="sendInquiry()">Send via WhatsApp</button>
+  </div>
+
+</div>
+
+<footer>
+  <p>Contact: WhatsApp / Call <strong>0795350576</strong></p>
+  <p>Admin: Dennis Jallen © 2026</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/254795350576" target="_blank">WhatsApp</a>
+
+<script>
+  function login(){
+    const u=document.getElementById('username').value;
+    const p=document.getElementById('password').value;
+    if(u==='Dennisjallen' && p==='jallen'){
+      document.getElementById('dashboard').classList.remove('hidden');
+      document.getElementById('loginMsg').innerText='Login successful';
+    }else{
+      document.getElementById('loginMsg').innerText='Invalid login details';
+    }
+  }
+  const saveUniversity = ()=>{};
+  const editUni = ()=>{};
+  const deleteUni = ()=>{};
+  const saveCourse = ()=>{};
+  const editCourse = ()=>{};
+  const deleteCourse = ()=>{};
+  const renderData = ()=>{};
+  const displayUniversities = ()=>{};
+  const searchUniversities = ()=>{};
+  const displayCourses = ()=>{};
+  const searchCourses = ()=>{};
+  const sendInquiry = ()=>{};
+</script>
+
+</body>
+</html>
